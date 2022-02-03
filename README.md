@@ -7,3 +7,6 @@ This project uses Time Difference of Arrival (TDOA) between pairs of sound detec
 I am using a form 
 $$TDOA \alpha h(x) = r_1 - r_2 = ||x-a_1|| - ||x-a_2||$$
 where x is the sound source position vector (using a 2-D position) and $a_i$ is the location of sensor $i$.
+
+![\sum_{\forall i}{x_i^{2}}](https://latex.codecogs.com/svg.latex?%5Csum_%7B%5Cforall+i%7D%7Bx_i%5E%7B2%7D%7D)
+![TDOA \alpha h(x) = r_1 - r_2 = ||x - a_1|| - ||x - a_2||](https://latex.codecogs.com/svg.latex?%5Csum_%7B%5Cforall+i%7D%7Bx_i%5E%7B2%7D%7D)
