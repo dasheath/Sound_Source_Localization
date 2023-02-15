@@ -1,5 +1,6 @@
 # Sound_Source_Localization
-Please see PDF presentation in this repo.
+- This was a class project for EN.525.744 Passive Emitter Geo-Location at Johns Hopkins University
+- Please see PDF presentation in this repo.
 
 ## TDOA
 This project uses Time Difference of Arrival (TDOA) between pairs of sound detectors to determine the location of a sound source. This involves sampling audio levels at the sensors, and using signal cross correlation methods to find the delay in number of samples between the sound at each sensor. Then use knowledge of sampling rate and wave speed to determine the time difference of arrival between the two sensors. 
