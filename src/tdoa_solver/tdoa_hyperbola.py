@@ -2,7 +2,9 @@ import numpy as np
 
 def tdoa_hyperbola(sensor1:np.ndarray, sensor2:np.ndarray, tdoa: float, x_range:tuple[int,int], y_range:tuple[int,int], n_points=400):
     """
-    Compute a TDOA hyperbola grid.
+    Compute a TDOA hyperbola. A TDOA hyperbola is such that r1 - r2 = tdoa,
+    where r1 and r2 are the distances from a point on the hyperbola to sensor1 and sensor2,
+    for all points on the hyperbola.
 
     Args:
         sensor1, sensor2: (2,) arrays with [x, y] coordinates
