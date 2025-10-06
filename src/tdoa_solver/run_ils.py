@@ -1,7 +1,7 @@
 
 import numpy as np
 
-def run_ils(z: np.ndarray, a: np.ndarray, x0: np.ndarray) -> np.ndarray:
+def run_ils(z: np.ndarray, a: np.ndarray, x0: np.ndarray|None = None) -> np.ndarray:
     """
     Python/Numpy translation of C++ runILS(Eigen::VectorXd z, Eigen::Matrix2Xd a, Eigen::Vector2d x0)
 
@@ -17,6 +17,9 @@ def run_ils(z: np.ndarray, a: np.ndarray, x0: np.ndarray) -> np.ndarray:
     # Ensure input dimensions are correct
     assert z.ndim == 1, "z must be a 1D array"
     assert a.ndim == 2 and a.shape[0] == 2, "a must be a 2xN array"
+
+    if x0 is None:
+        x0 = np.zeros(2, dtype=np.float64)
     assert x0.ndim == 1 and x0.shape[0] == 2, "x0 must be a 1D array of size 2"
 
     # Number of sensors
@@ -36,7 +39,7 @@ def run_ils(z: np.ndarray, a: np.ndarray, x0: np.ndarray) -> np.ndarray:
     H = np.zeros((nSensors - 1, 2))
     u = np.zeros((nSensors, 2))
 
-    stop_eps = 0.025
+    stop_eps = 0.0025
 
     # Iterative Least Squares loop
     for iteration in range(50):
@@ -76,6 +79,7 @@ def run_ils(z: np.ndarray, a: np.ndarray, x0: np.ndarray) -> np.ndarray:
 
         # Check stopping condition
         if np.linalg.norm(delta_solution) < stop_eps:
+            print(f"Stopping criterion met on iteration={iteration}")
             break
 
     return solution
