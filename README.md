@@ -3,6 +3,10 @@
 - Please see PDF presentation in this repo.
 - This repo also contains a streamlit app that is a re-implementation of the software part of that project.
 
+Go try the app:
+
+[Try the app on streamlit!](https://dasheath-sound-source-localization-main-c0v70u.streamlit.app/)
+
 ## TDOA
 The actual class project had multiple components. 
 - The first is an arduino board connected to 3 microphones which were sampling loudness values and transmitting buffers of data for each sensor to a laptop. 
