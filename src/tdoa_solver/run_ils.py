@@ -1,6 +1,8 @@
 
 import numpy as np
+import streamlit as st
 
+@st.cache_data
 def run_ils(z: np.ndarray, a: np.ndarray, x0: np.ndarray|None = None) -> np.ndarray:
     """
     Python/Numpy translation of C++ runILS(Eigen::VectorXd z, Eigen::Matrix2Xd a, Eigen::Vector2d x0)

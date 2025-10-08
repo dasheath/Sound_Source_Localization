@@ -1,5 +1,7 @@
 import numpy as np
+import streamlit as st
 
+@st.cache_data
 def tdoa_hyperbola(sensor1:np.ndarray, sensor2:np.ndarray, tdoa: float, x_range:tuple[int,int], y_range:tuple[int,int], n_points=400):
     """
     Compute a TDOA hyperbola. A TDOA hyperbola is such that r1 - r2 = tdoa,

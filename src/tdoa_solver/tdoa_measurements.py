@@ -1,5 +1,7 @@
 import numpy as np
+import streamlit as st
 
+@st.cache_data
 def tdoa_measurements(source_position: np.ndarray, sensors: np.ndarray) -> np.ndarray:
     """
     Python/Numpy translation of C++ runILS(Eigen::VectorXd z, Eigen::Matrix2Xd a, Eigen::Vector2d x0)

@@ -10,7 +10,6 @@ import plotly.graph_objects as go
 import plotly.express as px
 
 
-
 def plot_tdoa_curves(sensors: np.ndarray, tdoa_vals:np.ndarray, soln: np.ndarray, fig: go.Figure | None = None) -> None:
     """
     Plots TDOA hyperbolas for given sensor pairs and TDOA values.
@@ -64,7 +63,7 @@ def plot_tdoa_curves(sensors: np.ndarray, tdoa_vals:np.ndarray, soln: np.ndarray
 
     colors = px.colors.qualitative.Plotly
     for i, (s1, s2, tdoa) in enumerate(sensor_pairs):
-        x,y,F = tdoa_hyperbola(s1, s2, tdoa, (-20, 20), (-20, 20), n_points=200)
+        x,y,F = tdoa_hyperbola(s1, s2, tdoa, (-30, 30), (-30, 30), n_points=200)
 
         fig.add_trace(go.Contour(
             x=x, y=y, z=F,
@@ -79,8 +78,6 @@ def plot_tdoa_curves(sensors: np.ndarray, tdoa_vals:np.ndarray, soln: np.ndarray
     )
 
     # fig.show()
-
-
 
 if __name__ == "__main__":
     st.title("TDOA Localization with ILS")
@@ -135,10 +132,10 @@ if __name__ == "__main__":
     # st.markdown(f"Computed TDOA measurements in meters (v_sound*tau) from source to sensors: {tdoa_meas_vals}")
     st.markdown("## Computed TDOA Measurements \nThese values are the computed TDOA measurements in meters (v_sound*tau) from source to sensors.")
     st.markdown("Here, d21 = (distance from reference to sensor 2) - (distance from reference to sensor 1).")
-    df = pd.DataFrame(tdoa_meas_vals, columns=["TDOA (m)"], index=["d%d1" % (i+2) for i in range(tdoa_meas_vals.shape[0])])
-    st.dataframe(df)
+    dist_diff_df = pd.DataFrame(tdoa_meas_vals, columns=["TDOA (m)"], index=["d%d1" % (i+2) for i in range(tdoa_meas_vals.shape[0])])
+    st.dataframe(dist_diff_df)
 
-    soln = run_ils(tdoa_meas_vals, sensors, x0= None)
+    soln = run_ils(tdoa_meas_vals, sensors, x0 = None)
     fig = go.Figure()
     plot_tdoa_curves(sensors, np.array(tdoa_meas_vals), soln, fig)
     st.plotly_chart(fig, use_container_width=True)
