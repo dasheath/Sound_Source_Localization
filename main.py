@@ -4,7 +4,7 @@ import streamlit as st
 
 from src.tdoa_solver.run_ils import run_ils
 from src.tdoa_solver.tdoa_hyperbola import tdoa_hyperbola
-from tdoa_solver.tdoa_measurements import tdoa_measurements 
+from src.tdoa_solver.tdoa_measurements import tdoa_measurements 
 
 import plotly.graph_objects as go
 import plotly.express as px
