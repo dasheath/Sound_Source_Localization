@@ -91,7 +91,7 @@ if __name__ == "__main__":
             {"xpos": -8, "ypos": -8},
         ]
     )
-    st.markdown("## Sensor Positions \nEdit the sensor positions in the table above. Units are in meters.")
+    st.markdown("## Sensor Positions \nEdit the sensor positions in the table below. Units are in meters.")
     edited_sensor_pos = st.data_editor(
         default_sensor_pos,
         num_rows="dynamic",
@@ -108,7 +108,7 @@ if __name__ == "__main__":
             {"xpos":  -1, "ypos":  2.5},
         ]
     )
-    st.markdown("## Sound Source Position \nEdit the source position to be located in the table above. Units are in meters.")
+    st.markdown("## Sound Source Position \nEdit the source position to be located in the table below. Units are in meters.")
 
     edited_source_pos = st.data_editor(
         default_source_pos,
